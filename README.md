@@ -14,5 +14,5 @@ An end-to-end computer vision application that detects urban objects (people, ve
 3. **Access:** Open `http://127.0.0.1:5000`.
 
 ## 👨‍💻 AI/ML Engineer Profile
-**Donald McKinney** - Oak Park, IL
+**Donald McKinney** - Chicago, IL
 *Certifications: Python for Data Science, Cloud Computing, Software Engineering, Linux Commands & Shell Scripting.*
