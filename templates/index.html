@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart City Vision | AI Tracker</title>
+    <style>
+        :root { --neon-blue: #00f2ff; --dark-bg: #0a0b10; }
+        body { background: var(--dark-bg); color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 50px; }
+        .dashboard { border: 1px solid var(--neon-blue); padding: 30px; border-radius: 15px; box-shadow: 0 0 20px rgba(0, 242, 255, 0.2); background: rgba(255, 255, 255, 0.05); }
+        h1 { text-transform: uppercase; letter-spacing: 3px; color: var(--neon-blue); }
+        input[type="file"] { margin: 20px 0; border: 1px dashed var(--neon-blue); padding: 10px; cursor: pointer; }
+        button { background: var(--neon-blue); color: black; border: none; padding: 10px 25px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        button:hover { background: white; box-shadow: 0 0 15px var(--neon-blue); }
+        #results { margin-top: 30px; text-align: left; max-width: 600px; }
+        .stat-card { background: #1a1c23; padding: 15px; border-left: 5px solid var(--neon-blue); margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>🏙️ Smart City Vision</h1>
+        <p>AI-Powered Inventory & Object Tracker</p>
+
+        <input type="file" id="imageUpload" accept="image/*">
+        <button onclick="analyzeImage()">Run Inference</button>
+
+        <div id="results">
+            <div class="stat-card">
+                <strong>Status:</strong> <span id="status">Standby</span>
+            </div>
+            <div class="stat-card">
+                <strong>Objects Detected:</strong> <span id="count">0</span>
+            </div>
+            <pre id="jsonOutput" style="font-size: 12px; color: #888;"></pre>
+        </div>
+    </div>
+
+    <script>
+        async function analyzeImage() {
+            const fileInput = document.getElementById('imageUpload');
+            if (!fileInput.files[0]) return alert("Please select an image first!");
+
+            document.getElementById('status').innerText = "Processing...";
+
+            const formData = new FormData();
+            formData.append('image', fileInput.files[0]);
+
+            try {
+                const response = await fetch('/predict', { method: 'POST', body: formData });
+                const data = await response.json();
+
+                document.getElementById('status').innerText = "Analysis Complete";
+                document.getElementById('count').innerText = data.count;
+                document.getElementById('jsonOutput').innerText = JSON.stringify(data.detections, null, 2);
+            } catch (error) {
+                document.getElementById('status').innerText = "Error!";
+            }
+        }
+    </script>
+</body>
+</html>
