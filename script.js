@@ -27,12 +27,12 @@ function simulateInference() {
         // Simulate the AI processing delay
         setTimeout(() => {
             const mockData = [
-                {
-                    "bbox": [62.42, 33.71, 860.83, 675.47],
-                    "class": "person",
-                    "confidence": 0.8407
-                }
-            ];
+    {
+        "bbox": [62.42, 33.71, 860.83, 675.47],
+        "class": "person",
+        "confidence": 0.8407
+    }
+];
 
             status.innerText = "Analysis Complete";
             count.innerText = "1";
