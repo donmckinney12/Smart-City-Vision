@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart City Vision - Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>SMART CITY VISION</h1>
+        <p class="subtitle">AI-Powered Inventory & Object Tracker</p>
+
+        <div class="upload-section">
+            <input type="file" id="imageUpload" accept="image/*">
+            <button onclick="simulateInference()">Run inference</button>
+        </div>
+
+        <div class="results-box">
+            <p>Status: <span id="status">Standby</span></p>
+            <p>Objects Detected: <span id="count">0</span></p>
+            <pre id="jsonOutput"></pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

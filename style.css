@@ -1,0 +1,61 @@
+body {
+    background-color: #0d1117; /* Dark GitHub-style background */
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.container {
+    border: 2px solid #00d4ff; /* The neon blue from your video */
+    border-radius: 15px;
+    padding: 30px;
+    width: 500px;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    text-align: center;
+}
+
+h1 {
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #8b949e;
+    font-size: 0.9em;
+    margin-bottom: 30px;
+}
+
+.upload-section {
+    margin-bottom: 20px;
+}
+
+button {
+    background: transparent;
+    color: #00d4ff;
+    border: 1px solid #00d4ff;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #00d4ff;
+    color: #0d1117;
+}
+
+.results-box {
+    background: #161b22;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    border: 1px solid #30363d;
+}
+
+pre {
+    color: #3fb950; /* Green for the JSON output */
+    font-size: 0.85em;
+    overflow-x: auto;
+}
